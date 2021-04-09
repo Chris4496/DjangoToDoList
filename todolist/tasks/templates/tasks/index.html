@@ -1,0 +1,15 @@
+{% extends "tasks/layout.html" %}
+{% block body %}
+<div class="center">
+<h1>Tasks</h1>
+<ul class="list-group">
+    {% for task in tasks %}
+        <li class="list-group-item"><input class="form-check-input me-1" type="checkbox" value="" aria-label="...">{{ task }}</li>
+    {% empty %}
+        <li class="list-group-item">No tasks.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'tasks:add' %}">Add A New Task</a>
+<a href="{% url 'tasks:removeAll' %}">Delete all tasks</a>
+</div>
+{% endblock %}
